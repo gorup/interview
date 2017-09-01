@@ -23,7 +23,7 @@ public class Order {
             if (parentDeps.contains(dependency)) {
                 throw new RuntimeException(String.format("Cycle detected, target %s depends on %s which is an ancestor", target, dependency));
             }
-            orderedDependencies.addAll(getBuildOrder(dependency, parentDeps).reverse());
+            orderedDependencies.addAll(getBuildOrder(dependency, parentDeps));
         });
 
         parentDeps.remove(target);
